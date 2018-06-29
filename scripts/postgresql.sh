@@ -69,6 +69,9 @@ PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
 PG_HBA="/etc/postgresql/$PG_VERSION/main/pg_hba.conf"
 PG_DIR="/var/lib/postgresql/$PG_VERSION/main"
 
+# Start postgresql service on system startup
+update-rc.d postgresql enable
+
 # Edit postgresql.conf to change listen address to '*':
 sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" "$PG_CONF"
 
